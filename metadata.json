@@ -1,0 +1,10 @@
+{
+  "name": "Hệ Thống Quét Mã Vạch & Đồng Bộ Kho Hàng",
+  "description": "Ứng dụng nội bộ quét mã vạch bằng camera điện thoại, tự động đồng bộ dữ liệu nhập xuất tồn kho theo thời gian thực.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

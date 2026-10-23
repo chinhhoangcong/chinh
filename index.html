@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Suppress harmless Vite dev HMR WebSocket disconnects in AI Studio dev preview
+      (function() {
+        var origError = console.error;
+        console.error = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            var str = String(arguments[i]);
+            if (str.indexOf('WebSocket') !== -1 || str.indexOf('[vite]') !== -1) {
+              return;
+            }
+          }
+          origError.apply(console, arguments);
+        };
+        window.addEventListener('error', function(e) {
+          if (e.message && (e.message.indexOf('WebSocket') !== -1 || e.message.indexOf('vite') !== -1)) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        }, true);
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kho FELIXXI - Quét Mã Vạch &amp; Kho Hàng</title>
+    <meta name="description" content="Hệ thống quản lý kho FELIXXI quét mã vạch bằng camera điện thoại, tự động đồng bộ tồn kho thời gian thực." />
+    <meta property="og:title" content="Kho FELIXXI - Quét Mã Vạch &amp; Kho Hàng" />
+    <meta property="og:description" content="Hệ thống quản lý kho FELIXXI quét mã vạch bằng camera điện thoại, tự động đồng bộ tồn kho thời gian thực." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Kho FELIXXI" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

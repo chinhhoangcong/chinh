@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@keyframes laserScan {
+  0% {
+    top: 6px;
+    opacity: 0.8;
+  }
+  50% {
+    top: calc(100% - 8px);
+    opacity: 1;
+  }
+  100% {
+    top: 6px;
+    opacity: 0.8;
+  }
+}
+
+.animate-laser {
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+/* Ensure html5-qrcode video is responsive and fills its container */
+#reader-viewport video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 0.75rem;
+}
+
+#reader-viewport img {
+  display: none !important;
+}
+
+/* CRITICAL: Enforce crisp dark text inside modals and white surfaces */
+.bg-white,
+.bg-slate-50,
+.modal-content {
+  color: #0f172a !important;
+}
+
+.bg-white input,
+.bg-white select,
+.bg-white textarea,
+.bg-slate-50 input,
+.bg-slate-50 select,
+.bg-slate-50 textarea {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+}
+
+.bg-white input::placeholder,
+.bg-white textarea::placeholder,
+.bg-slate-50 input::placeholder,
+.bg-slate-50 textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Print Styles for Barcode Labels */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
